@@ -9,7 +9,24 @@
   --white: hsl(250, 100%, 100%);
   /*Font sizes*/
   --body: 16px;
+  --title: 50px;
+  --aside: 15px;
+  --form-text: 14px;
+  --agreement: 11px;
 }
+
+@media (max-width: 950px) {
+  :root {
+    --title: 35px;
+  }
+}
+
+@media (max-width: 700px) {
+  :root {
+    --title: 28px;
+  }
+}
+
 /*Reset styles*/
 * {
   box-sizing: border-box;
@@ -31,17 +48,180 @@ body {
   padding: 0;
   color: var(--white);
   font-size: var(--body);
+  font-weight: 500;
+  line-height: 1.6;
 }
+
 /*Utility classes*/
 .bold {
   font-weight: 500;
 }
+
 .red {
   color: var(--red);
 }
 
 /*Styles*/
 main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 3% 0px;
   background-image: url(./images/bg-intro-desktop.png);
   background-color: var(--red);
+}
+
+.container {
+  max-width: 1110px;
+}
+
+footer {
+  margin-top: 3%;
+  text-align: center;
+  padding: 15px;
+}
+
+.singUpForm .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 45px;
+}
+
+.singUpForm__content {
+  max-width: 449px;
+}
+
+.singUpForm__title {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: var(--title);
+  line-height: 1.1;
+  letter-spacing: -0.520833px;
+}
+
+.singUpForm__form {
+  max-width: 540px;
+}
+
+.singUpForm__advertising {
+  padding: 17px 0px;
+  margin-bottom: 24px;
+  text-align: center;
+  background-color: var(--blue);
+  font-weight: 700;
+  font-size: var(--aside);
+  line-height: 1.7;
+  letter-spacing: 0.267857px;
+  box-shadow: 0px 8px 0px rgba(0, 0, 0, 0.14688);
+  border-radius: 10px;
+}
+
+.form {
+  padding: 40px;
+  font-size: var(--form-text);
+  font-weight: 600;
+  line-height: 1.8;
+  letter-spacing: 0.25px;
+  background-color: var(--white);
+  box-shadow: 0px 8px 0px rgba(0, 0, 0, 0.14688);
+  border-radius: 10px;
+}
+.form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form input,
+button {
+  outline: none;
+  border: 1px solid var(--grayish-blue);
+  display: block;
+  width: 100%;
+  padding: 15px 32px;
+  color: var(--dark-blue);
+  border: 1px solid var(--blue);
+  border-radius: 5px;
+}
+
+.form input::-moz-placeholder {
+  color: red;
+}
+
+.form input::placeholder {
+  color: var(--dark-blue);
+}
+
+.form input:focus {
+  border: 1px solid var(--dark-blue);
+}
+
+.form button {
+  outline: none;
+  border: none;
+  font-size: var(--aside);
+  font-weight: 600;
+  color: var(--white);
+  text-transform: uppercase;
+  background-color: var(--green);
+  box-shadow: inset 0px -4px 0px rgba(0, 0, 0, 0.0908818);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.4s ease-in;
+}
+
+.form button:hover {
+  background-color: var(--blue);
+}
+
+.form__agreement {
+  margin-top: -12px;
+  font-size: var(--agreement);
+  font-weight: 500;
+  color: var(--grayish-blue);
+}
+
+@media (max-width: 950px) {
+  .container {
+    padding: 0 24px;
+  }
+
+  .form {
+    min-width: 350px;
+    padding: 24px;
+  }
+}
+
+@media (max-width: 700px) {
+  .singUpForm .container {
+    flex-wrap: wrap;
+    gap: 64px;
+  }
+
+  .singUpForm__content {
+    text-align: center;
+  }
+
+  .singUpForm__advertising {
+    padding: 18px 66px;
+  }
+
+  .singUpForm__advertising p {
+    max-width: 194px;
+    margin: 0 auto;
+  }
+
+  .form {
+    min-width: 200px;
+    padding: 24px;
+  }
+
+  .form__agreement {
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: center;
+  }
 }
