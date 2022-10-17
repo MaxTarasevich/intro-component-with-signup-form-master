@@ -225,3 +225,10 @@ button {
     text-align: center;
   }
 }
+
+.form input.invalid + .error {
+  font-size: var(--agreement);
+  color: var(--red);
+  display: block;
+  text-align: right;
+}

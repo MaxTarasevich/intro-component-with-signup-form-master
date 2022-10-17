@@ -1,36 +1,64 @@
 const form = document.getElementById('form')
-const name = document.getElementById('name')
+const nameInput = document.getElementById('name')
 const lastName = document.getElementById('lastName')
 const email = document.getElementById('email')
 const password = document.getElementById('password')
 const button = document.getElementById('button')
 
+form.addEventListener(`submit`, (e) => {
+ 
+   e.preventDefault()
 
-form.addEventListener(`submit`,(e)=>{
-    if(!input.validity.valid) {
-        showError()
-       e.preventDefault()
-      }
 })
 
-input.addEventListener('input', ()=> {
-  
-    if (input.validity.valid) {
-        error.textContent = ''
-        input.classList.remove(`invalid`)
-        erroeIcon.style.display = 'none'
-    } else {
-        showError();
-        input.classList.add(`invalid`)
-    }
-  });
+nameInput.addEventListener('input', (e) => {
+  inputText(e)
+})
 
-  function showError() {
-    if(input.validity.valueMissing) {
-      error.textContent = 'You need to enter an e-mail address.'
-      erroeIcon.style.display = 'block'
-    } else if(input.validity.typeMismatch) {
-      error.textContent = 'Please provide a valid email'
-      erroeIcon.style.display = 'block'
-    } 
+lastName.addEventListener('input', (e) => {
+  inputText(e)
+})
+
+email.addEventListener('input', (e) => {
+  inputEmail(e)
+})
+
+password.addEventListener('input', (e) => {
+  inputPassword(e)
+})
+
+function inputText(e) {
+  if (e.target.validity.tooShort) {
+    e.target.classList.add('invalid')
+    e.target.nextElementSibling.textContent = `Your ${e.target.placeholder} is too short!`
+  } else {
+    e.target.classList.remove('invalid')
+    e.target.nextElementSibling.textContent = ''
+  }
+}
+
+function inputEmail(e) {
+  if (e.target.validity.typeMismatch) {
+    e.target.classList.add('invalid')
+    e.target.nextElementSibling.textContent = `Please enter your ${e.target.placeholder}!`
+  } else {
+    e.target.classList.remove('invalid')
+    e.target.nextElementSibling.textContent = ''
+  }
+}
+
+function inputPassword(e) {
+  if (e.target.value.length < 6) {
+    e.target.classList.add('invalid')
+    e.target.nextElementSibling.textContent = `Your ${e.target.placeholder} is too short!`
+  } else if (e.target.value.length > 12) {
+    e.target.classList.add('invalid')
+    e.target.nextElementSibling.textContent = `Your ${e.target.placeholder} is too long!`
+  } else if (e.target.validity.patternMismatch) {
+    e.target.classList.add('invalid')
+    e.target.nextElementSibling.textContent = `Your ${e.target.placeholder} must contain at least one capital letter and a number!`
+  } else {
+    e.target.classList.remove('invalid')
+    e.target.nextElementSibling.textContent = ''
+  }
 }

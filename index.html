@@ -33,38 +33,51 @@
               </p>
             </aside>
             <div class="form">
-              <form action="#" id="form">
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  placeholder="First Name"
-                  minlength="2"
-                  required
-                />
-                <input
-                  type="text"
-                  name="lastName"
-                  id="lastName"
-                  placeholder="Last Name"
-                  minlength="2"
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Email Address"
-                  required
-                />
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="Password"
-                  minlength="6"
-                  required
-                />
+              <form action="#" id="form" >
+                <div>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="First Name"
+                    minlength="2"
+                    required
+                  />
+                  <span class="error"></span>
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    name="lastName"
+                    id="lastName"
+                    placeholder="Last Name"
+                    minlength="2"
+                    required
+                  />
+                  <span class="error"></span>
+                </div>
+                <div>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Email Address"
+                    required
+                  />
+                  <span class="error"></span>
+                </div>
+                <div>
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Password"
+                    minlength="6"
+                    pattern="^(?=.*\d{1})(?=.*[a-z]{1})(?=.*[A-Z]{1})[a-zA-Z0-9]{6,12}$"
+                    required
+                  />
+                  <span class="error"></span>
+                </div>
                 <button id="button" type="submit">Claim your free trial</button>
                 <p class="form__agreement">
                   By clicking the button, you are agreeing to our
