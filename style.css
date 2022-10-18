@@ -226,6 +226,10 @@ button {
   }
 }
 
+.form input.invalid {
+  border: 1px solid var(--red);
+}
+
 .form input.invalid + .error {
   font-size: var(--agreement);
   color: var(--red);
